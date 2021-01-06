@@ -1,6 +1,5 @@
 import Head from 'next/head';
 import { Code } from '../components/Code';
-import { Pre } from '../components/Pre';
 
 export default function ImplementationDetailInTestsDescription() {
   return (
@@ -39,25 +38,23 @@ export default function ImplementationDetailInTestsDescription() {
 });`}
           </Code>
           <p>
-            When you read this description now, does it tell you what <Pre>`omit`</Pre> does? No? Then we're on the same
-            page.
+            When you read this description now, does it tell you what <code>`omit`</code> does? No? Then we're on the
+            same page.
           </p>
           <p>Let's try fixing this test one step at a time.</p>
           <p>
-            First of all <Pre>`name`</Pre> is an implementation detail and should only serve as an example in, well, the
-            implementation. Code examples can change, property that will be omited can change. What does not change is
-            the functionality, the unit under the test, the behaviour. Therefore what <strong>is</strong> happening, is
-            that <Pre>`omit`</Pre> removes given property from passed object.
+            First of all <code>`name`</code> is an implementation detail and should only serve as an example in, well,
+            the implementation. Code examples can change, property that will be omited can change. What does not change
+            is the functionality, the unit under the test, the behaviour. Therefore what <strong>is</strong> happening,
+            is that <code>`omit`</code> removes given property from passed object.
           </p>
           <p>Having established that, a better description would be:</p>
-          <p>
-            <Code language="diff">
-              {`describe('omit', () => {
+          <Code language="diff">
+            {`describe('omit', () => {
 -  it('should remove "name" property', () => {});
 +  it('should remove given property from passed object', () => {});
 });`}
-            </Code>
-          </p>
+          </Code>
           <p>Are we done now? I would say almost. Perhaps there's more.</p>
           <p>
             If I were to leave the description like this (still, with implementation hidden), I would not expect `omit`
@@ -65,14 +62,12 @@ export default function ImplementationDetailInTestsDescription() {
             the object by referencing to it.
           </p>
           <p>Let's fix that as well:</p>
-          <p>
-            <Code language="diff">
-              {`describe('omit', () => {
+          <Code language="diff">
+            {`describe('omit', () => {
 -  it('should remove given property from passed object', () => {});
 +  it('should return a copy of the object with given property removed', () => {});
 });`}
-            </Code>
-          </p>
+          </Code>
           <ul className="list-disc list-inside leading-normal mb-8">
             <li>Sounds better? I think so.</li>
             <li>Is it perfect? Probably not.</li>
@@ -97,7 +92,7 @@ export default function ImplementationDetailInTestsDescription() {
           </Code>
           <p>Hmm... something feels odd, doesn't it? Let's look at the assertion and the description:</p>
           <p>
-            <Pre>`should return a copy of the object`</Pre> and <Pre>`expect(data.name).toBeUndefined();`</Pre> - is
+            <code>`should return a copy of the object`</code> and <code>`expect(data.name).toBeUndefined();`</code> - is
             that (copy) checked anywhere? Nope? Let's fix it.
           </p>
           <aside>
@@ -141,7 +136,10 @@ export default function ImplementationDetailInTestsDescription() {
 });`}
           </Code>
           <ul className="list-disc list-inside leading-normal mb-8">
-            <li>I got a question: why not checking if `data` still has `name` property? Isn't that the same?</li>
+            <li>
+              I got a question: why not checking if <code>`data`</code> still has <code>`name`</code> property? Isn't
+              that the same?
+            </li>
             <li>No.</li>
             <li>
               But it's that simple (to write and read). I still don't see it <span className="italic">that</span>{' '}
