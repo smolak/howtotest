@@ -12,7 +12,7 @@ export default function ImplementationDetailInTestsDescription() {
 
       <main className="container mx-auto">
         <article>
-          <h1 className="text-6xl font-black leading-normal">
+          <h1 className="text-6xl font-black leading-normal max-w-screen-lg">
             (Problems with) implementation detail in test's description
           </h1>
           <p>Let's take a look at this test:</p>
@@ -29,14 +29,14 @@ export default function ImplementationDetailInTestsDescription() {
       
       expect(result.name).toBeUndefined();
   });
-});`.trim()}
+});`}
           </Code>
           <p>The test is doing exactly what is written in the `it` clause. But can you spot what's wrong here?</p>
           <p>Let me give you a hint (by hiding the implementation):</p>
           <Code>
             {`describe('omit', () => {
   it('should remove "name" property', () => {});
-});`.trim()}
+});`}
           </Code>
           <p>
             When you read this description now, does it tell you what <Pre>`omit`</Pre> does? No? Then we're on the same
@@ -50,6 +50,139 @@ export default function ImplementationDetailInTestsDescription() {
             that <Pre>`omit`</Pre> removes given property from passed object.
           </p>
           <p>Having established that, a better description would be:</p>
+          <Code language="diff">
+            {`describe('omit', () => {
+-  it('should remove "name" property', () => {});
++  it('should remove given property from passed object', () => {});
+});`}
+          </Code>
+          <p>Are we done now? I would say almost. Perhaps there's more.</p>
+          <p>
+            If I were to leave the description like this (still, with implementation hidden), I would not expect `omit`
+            to return anything (as it does right now), but probably operate on the object itself-meaning, it would alter
+            the object by referencing to it.
+          </p>
+          <p>Let's fix that as well:</p>
+          <Code language="diff">
+            {`describe('omit', () => {
+-  it('should remove given property from passed object', () => {});
++  it('should return a copy of the object with given property removed', () => {});
+});`}
+          </Code>
+          <ul className="list-disc list-inside leading-normal mb-8">
+            <li>Sounds better? I think so.</li>
+            <li>Is it perfect? Probably not.</li>
+            <li>Is it good enough? Yes, I'd say so.</li>
+            <li>Is it better than the one at the beginning? Most certainly, yes.</li>
+          </ul>
+          <p>All right. Let's bring back the implementation to see how does the new description fit in:</p>
+          <Code>
+            {`describe('omit', () => {
+  it('should return a copy of the object with given property removed', () => {
+    const data = {
+      name: 'John',
+      age: 42,
+      email: 'john@email.com'
+    };
+    
+    const result = omit('name', data);
+    
+    expect(result.name).toBeUndefined();
+  });
+});`}
+          </Code>
+          <p>Hmm... something feels odd, doesn't it? Let's look at the assertion and the description:</p>
+          <p>
+            <Pre>`should return a copy of the object`</Pre> and <Pre>`expect(data.name).toBeUndefined();`</Pre> - is
+            that (copy) checked anywhere? Nope? Let's fix it.
+          </p>
+          <aside>
+            <p>There are two ways you can approach this:</p>
+            <ol className="list-decimal list-inside leading-normal mb-8">
+              <li>Add an assertion to given test.</li>
+              <li>Add a new test, which checks that input object is not the same as the output object.</li>
+            </ol>
+            <ul className="list-disc list-inside leading-normal mb-8">
+              <li>Which one is correct?</li>
+              <li>I'd say both are, but I would go with another assertion only.</li>
+              <li>Why?</li>
+              <li>
+                Because this test is short and doesn't need to expliticlty (separate test) show that the returned object
+                is a copy, simple assertion in one test will be fine. Secondly, because it relates to the data being
+                returned. If, on the other hand, there were two, separate things going on as a result of some action,
+                then I would say go with two separate tests.
+              </li>
+            </ul>
+            <p>
+              <strong>
+                (TODO: link to an example with a button when where it is clicked spy is called and spinner is shown).
+              </strong>
+            </p>
+          </aside>
+          <p>Here's the code with additional assertion:</p>
+          <Code>
+            {`describe('omit', () => {
+  it('should return a copy of the object with given property removed', () => {
+    const data = {
+      name: 'John',
+      age: 42,
+      email: 'john@email.com'
+    };
+    
+    const result = omit('name', data);
+    
+    expect(result.name).toBeUndefined();
+    expect(result).not.toEqual(data);
+  });
+});`}
+          </Code>
+          <ul className="list-disc list-inside leading-normal mb-8">
+            <li>I got a question: why not checking if `data` still has `name` property? Isn't that the same?</li>
+            <li>No.</li>
+            <li>But it's that simple (to write and read). I still don't see it _that_ different.</li>
+            <li>
+              OK, let's try doing it your way.
+              <Code>
+                {`- expect(result).not.toEqual(data);
++ expect(data.name).toEqual('John');`}
+              </Code>
+            </li>
+            <li>Done. What now?</li>
+            <li>
+              Break the test. Remove copying the object from implementation.
+              <Code>
+                {`- const copy = { ...object };
+- delete copy[property];
+- return copy;
++ delete object[property];
++ return object;`}
+              </Code>
+            </li>
+            <li>Done.</li>
+            <li>
+              Run the tests and watch.
+              <Code language="shell">{`Assertion error: undefined expected to be equal to John`}</Code>
+            </li>
+            <li>What the?</li>
+            <li>
+              Now use the initial assertion.
+              <Code language="shell">Assertion error: expected not to be equal </Code>
+              As you can see, using the object equality assertion resulted in error message that reflects the expected
+              behaviour as written in test's description. And that's the difference and reason why checking properties
+              would not help you eventually.
+            </li>
+          </ul>
+          <section>
+            <h3 className="text-3xl font-black leading-normal">Summarizing:</h3>
+            <ol className="list-decimal list-inside leading-normal mb-8">
+              <li>(-) Don't mention implementation detail in the description (test data can change).</li>
+              <li>(+) Instead, write concise explanation what to expect (behaviour).</li>
+              <li>(+) Let the example show how it works (implementation).</li>
+              <li>
+                (+) Finally, use assertions that correspond exactly (or as close as possible) to test's description.
+              </li>
+            </ol>
+          </section>
         </article>
       </main>
 
