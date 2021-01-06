@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    p {
+        @apply mt-3;
+        @apply mb-6;
+        @apply text-gray-700;
+    }
+
+    ul, ol {
+        @apply pl-5;
+        @apply mb-8;
+        @apply leading-normal;
+    }
+
+    ul {
+        @apply list-disc;
+    }
+
+    ol {
+        @apply list-decimal;
+    }
+
+    li {
+        @apply mt-1.5;
+        @apply mb-1.5;
+        @apply text-gray-700;
+    }
+
+    code {
+        @apply bg-gray-100;
+        @apply rounded;
+        @apply p-0.5;
+        @apply text-gray-800;
+    }
+}

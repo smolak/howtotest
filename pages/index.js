@@ -9,13 +9,13 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="container mx-auto">
+      <main className="container mx-auto max-w-screen-lg p-4">
         <section className="max-w-screen-md">
           <h1 className="text-8xl font-black leading-normal">How to test</h1>
           <p className="text-2xl leading-normal">
             <strong>How to test</strong> is a place where you will find a set of guides, examples, on
           </p>
-          <ul className="list-disc list-inside text-2xl leading-normal mb-8">
+          <ul className="list-inside text-2xl leading-normal">
             <li>how to go about testing,</li>
             <li>writing meaningful tests,</li>
             <li>well described tests,</li>
@@ -36,7 +36,9 @@ export default function Home() {
         </nav>
       </main>
 
-      <footer className="container mx-auto pt-10">Footer content ... to be added ;)</footer>
+      <footer className="container mx-auto max-w-screen-lg p-4 pt-10">
+        <p>Footer content ... to be added ;)</p>
+      </footer>
     </>
   );
 }

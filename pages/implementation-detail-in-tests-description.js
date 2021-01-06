@@ -9,9 +9,9 @@ export default function ImplementationDetailInTestsDescription() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="container mx-auto">
+      <main className="container mx-auto max-w-screen-lg p-4">
         <article>
-          <h1 className="text-6xl font-black leading-normal max-w-screen-lg">
+          <h1 className="text-5xl leading-normal font-black max-w-screen-lg">
             (Problems with) implementation detail in test's description
           </h1>
           <p>Let's take a look at this test:</p>
@@ -68,7 +68,7 @@ export default function ImplementationDetailInTestsDescription() {
 +  it('should return a copy of the object with given property removed', () => {});
 });`}
           </Code>
-          <ul className="list-disc list-inside leading-normal mb-8">
+          <ul>
             <li>Sounds better? I think so.</li>
             <li>Is it perfect? Probably not.</li>
             <li>Is it good enough? Yes, I'd say so.</li>
@@ -97,11 +97,11 @@ export default function ImplementationDetailInTestsDescription() {
           </p>
           <aside>
             <p>There are two ways you can approach this:</p>
-            <ol className="list-decimal list-inside leading-normal mb-8">
+            <ol>
               <li>Add an assertion to given test.</li>
               <li>Add a new test, which checks that input object is not the same as the output object.</li>
             </ol>
-            <ul className="list-disc list-inside leading-normal mb-8">
+            <ul>
               <li>Which one is correct?</li>
               <li>I'd say both are, but I would go with another assertion only.</li>
               <li>Why?</li>
@@ -135,7 +135,7 @@ export default function ImplementationDetailInTestsDescription() {
   });
 });`}
           </Code>
-          <ul className="list-disc list-inside leading-normal mb-8">
+          <ul>
             <li>
               I got a question: why not checking if <code>`data`</code> still has <code>`name`</code> property? Isn't
               that the same?
@@ -179,7 +179,7 @@ export default function ImplementationDetailInTestsDescription() {
           </ul>
           <section>
             <h3 className="text-3xl font-black leading-normal">Summarizing:</h3>
-            <ol className="list-decimal list-inside leading-normal mb-8">
+            <ol>
               <li>(-) Don't mention implementation detail in the description (test data can change).</li>
               <li>(+) Instead, write concise explanation what to expect (behaviour).</li>
               <li>(+) Let the example show how it works (implementation).</li>
@@ -192,7 +192,9 @@ export default function ImplementationDetailInTestsDescription() {
         </article>
       </main>
 
-      <footer className="container mx-auto pt-10">Footer content ... to be added ;)</footer>
+      <footer className="container mx-auto max-w-screen-lg p-4 pt-10">
+        <p>Footer content ... to be added ;)</p>
+      </footer>
     </>
   );
 }
