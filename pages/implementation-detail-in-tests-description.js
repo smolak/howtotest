@@ -80,11 +80,15 @@ export default function ImplementationDetailInTestsDescription() {
 +  it('should return a copy of the object with given property removed', () => {});
 });`}
             </Code>
-            <ul>
-              <li>Sounds better? I think so.</li>
-              <li>Is it perfect? Probably not.</li>
-              <li>Is it good enough? Yes, I'd say so.</li>
-              <li>Is it better than the one at the beginning? Most certainly, yes.</li>
+            <ul className="conversation">
+              <li>Sounds better?</li>
+              <li>I think so.</li>
+              <li>Is it perfect?</li>
+              <li>Probably not.</li>
+              <li>Is it good enough?</li>
+              <li>Yes, I'd say so.</li>
+              <li>Is it better than the one at the beginning?</li>
+              <li>Most certainly, yes.</li>
             </ul>
             <p>All right. Let's bring back the implementation to see how does the new description fit in:</p>
             <Code>

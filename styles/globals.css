@@ -4,14 +4,13 @@
 
 @layer base {
     p {
-        @apply mt-3;
-        @apply mb-6;
+        @apply my-5;
         @apply text-gray-700;
     }
 
     ul, ol {
         @apply pl-5;
-        @apply mb-8;
+        @apply my-5;
         @apply leading-normal;
     }
 
