@@ -1,65 +1,43 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import Head from 'next/head';
+import Link from 'next/link'
 
 export default function Home() {
   return (
-    <div className={styles.container}>
+    <>
       <Head>
-        <title>Create Next App</title>
+        <title>How to test</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
+      <main className="container mx-auto">
+        <section className="max-w-screen-md">
+          <h1 className="text-8xl font-black leading-normal">How to test</h1>
+          <p className="text-2xl leading-normal">
+            <strong>How to test</strong> is a place where you will find a set of guides, examples, on
+          </p>
+          <ul className="list-disc list-inside text-2xl leading-normal mb-8">
+            <li>how to go about testing,</li>
+            <li>writing meaningful tests,</li>
+            <li>well described tests,</li>
+            <li>or even how to begin writing test first code.</li>
+          </ul>
+          <p>
+            All of the code examples you will find here are ones I either came
+            up with or I had reviewed at work (those are changed, not 1:1)
+            or it is a code I created in my free time.
+          </p>
+        </section>
 
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
+        <nav>
+          <Link href="/implementation-detail-in-tests-description">
+            <a className="text-blue-600 hover:text-blue-800 hover:underline">(Problems with) implementation detail in test's description</a>
+          </Link>
+        </nav>
       </main>
 
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
+      <footer className="container mx-auto pt-10">
+        Footer content ... to be added ;)
       </footer>
-    </div>
+    </>
   )
 }
