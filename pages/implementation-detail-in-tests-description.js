@@ -50,12 +50,14 @@ export default function ImplementationDetailInTestsDescription() {
             that <Pre>`omit`</Pre> removes given property from passed object.
           </p>
           <p>Having established that, a better description would be:</p>
-          <Code language="diff">
-            {`describe('omit', () => {
+          <p>
+            <Code language="diff">
+              {`describe('omit', () => {
 -  it('should remove "name" property', () => {});
 +  it('should remove given property from passed object', () => {});
 });`}
-          </Code>
+            </Code>
+          </p>
           <p>Are we done now? I would say almost. Perhaps there's more.</p>
           <p>
             If I were to leave the description like this (still, with implementation hidden), I would not expect `omit`
@@ -63,12 +65,14 @@ export default function ImplementationDetailInTestsDescription() {
             the object by referencing to it.
           </p>
           <p>Let's fix that as well:</p>
-          <Code language="diff">
-            {`describe('omit', () => {
+          <p>
+            <Code language="diff">
+              {`describe('omit', () => {
 -  it('should remove given property from passed object', () => {});
 +  it('should return a copy of the object with given property removed', () => {});
 });`}
-          </Code>
+            </Code>
+          </p>
           <ul className="list-disc list-inside leading-normal mb-8">
             <li>Sounds better? I think so.</li>
             <li>Is it perfect? Probably not.</li>
