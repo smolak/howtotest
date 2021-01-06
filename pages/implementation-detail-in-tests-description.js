@@ -142,7 +142,7 @@ export default function ImplementationDetailInTestsDescription() {
             <li>But it's that simple (to write and read). I still don't see it _that_ different.</li>
             <li>
               OK, let's try doing it your way.
-              <Code>
+              <Code language="diff">
                 {`- expect(result).not.toEqual(data);
 + expect(data.name).toEqual('John');`}
               </Code>
@@ -150,7 +150,7 @@ export default function ImplementationDetailInTestsDescription() {
             <li>Done. What now?</li>
             <li>
               Break the test. Remove copying the object from implementation.
-              <Code>
+              <Code language="diff">
                 {`- const copy = { ...object };
 - delete copy[property];
 - return copy;
