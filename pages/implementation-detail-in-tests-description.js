@@ -70,8 +70,8 @@ export default function ImplementationDetailInTestsDescription() {
             <p>Are we done now? I would say almost. Perhaps there's more.</p>
             <p>
               If I were to leave the description like this (still, with implementation hidden), I would not expect
-              `omit` to return anything (as it does right now), but probably operate on the object itself-meaning, it
-              would alter the object by referencing to it.
+              <code>`omit`</code> to return anything (as it does right now), but probably operate on the object
+              itself-meaning, it would alter the object by referencing to it.
             </p>
             <p>Let's fix that as well:</p>
             <Code language="diff">
