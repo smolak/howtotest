@@ -139,7 +139,10 @@ export default function ImplementationDetailInTestsDescription() {
           <ul className="list-disc list-inside leading-normal mb-8">
             <li>I got a question: why not checking if `data` still has `name` property? Isn't that the same?</li>
             <li>No.</li>
-            <li>But it's that simple (to write and read). I still don't see it _that_ different.</li>
+            <li>
+              But it's that simple (to write and read). I still don't see it <span className="italic">that</span>{' '}
+              different.
+            </li>
             <li>
               OK, let's try doing it your way.
               <Code language="diff">
@@ -179,7 +182,8 @@ export default function ImplementationDetailInTestsDescription() {
               <li>(+) Instead, write concise explanation what to expect (behaviour).</li>
               <li>(+) Let the example show how it works (implementation).</li>
               <li>
-                (+) Finally, use assertions that correspond exactly (or as close as possible) to test's description.
+                (+) Finally, use assertions that correspond exactly (or as close as possible) to test's description, so
+                when the tests will fail, messages will inform you exactly (or as close as possible) why.
               </li>
             </ol>
           </section>
