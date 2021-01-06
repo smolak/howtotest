@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import { Code } from '../components/Code';
+import { Pre } from '../components/Pre';
 
 export default function ImplementationDetailInTestsDescription() {
   return (
@@ -38,16 +39,15 @@ export default function ImplementationDetailInTestsDescription() {
 });`.trim()}
           </Code>
           <p>
-            When you read this description now, does it tell you what <pre className="inline">`omit`</pre> does? No?
-            Then we're on the same page.
+            When you read this description now, does it tell you what <Pre>`omit`</Pre> does? No? Then we're on the same
+            page.
           </p>
           <p>Let's try fixing this test one step at a time.</p>
           <p>
-            First of all <pre className="inline">`name`</pre> is an implementation detail and should only serve as an
-            example in, well, the implementation. Code examples can change, property that will be omited can change.
-            What does not change is the functionality, the unit under the test, the behaviour. Therefore what{' '}
-            <strong>is</strong> happening, is that <pre className="inline">`omit`</pre> removes given property from
-            passed object.
+            First of all <Pre>`name`</Pre> is an implementation detail and should only serve as an example in, well, the
+            implementation. Code examples can change, property that will be omited can change. What does not change is
+            the functionality, the unit under the test, the behaviour. Therefore what <strong>is</strong> happening, is
+            that <Pre>`omit`</Pre> removes given property from passed object.
           </p>
           <p>Having established that, a better description would be:</p>
         </article>
