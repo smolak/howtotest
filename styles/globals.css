@@ -49,7 +49,7 @@
     }
 
     .conversation li, .conversation.starting-me li, .conversation.starting-you li:nth-child(odd) {
-        @apply ml-6 mr-0 rounded-2xl rounded-br-none bg-green-500 px-7 py-4 text-white text-right shadow-md border-0;
+        @apply ml-6 mr-0 rounded-2xl rounded-br-none bg-green-500 px-7 py-4 text-white text-right shadow border-0;
     }
 
     .conversation li:nth-child(odd), .conversation.starting-me li:nth-child(odd), .conversation.starting-you li {
