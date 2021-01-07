@@ -22,8 +22,8 @@ export default function Home() {
             <li>or even how to begin writing test first code.</li>
           </ul>
           <p>
-            All of the code examples you will find here are ones I either came up with or I had reviewed at work (those
-            are changed, not 1:1) or it is a code I created in my free time.
+            All of the code examples you will find here are ones I either stumbled across or I had reviewed at work
+            (those are changed, not 1:1) or it is a code I created.
           </p>
         </section>
 
