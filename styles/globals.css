@@ -4,14 +4,11 @@
 
 @layer base {
     p {
-        @apply my-5;
-        @apply text-gray-700;
+        @apply my-5 text-gray-700;
     }
 
     ul, ol {
-        @apply pl-5;
-        @apply my-5;
-        @apply leading-normal;
+        @apply pl-5 my-5 leading-normal;
     }
 
     ul {
@@ -19,7 +16,17 @@
     }
 
     ol {
-        @apply list-decimal;
+        @apply list-none;
+        counter-reset: my-counter;
+    }
+
+    ol li {
+        counter-increment: my-counter;
+    }
+
+    ol li::before {
+        @apply font-bold;
+        content: counter(my-counter) ". ";
     }
 
     li {
@@ -28,10 +35,52 @@
         @apply text-gray-700;
     }
 
-    code {
+    p > code, li > code {
         @apply bg-gray-100;
         @apply rounded;
         @apply p-0.5;
         @apply text-gray-800;
+    }
+}
+
+@layer components {
+    .conversation {
+        @apply rounded-lg p-10 m-10 list-none flex flex-col space-y-4 shadow-2xl font-light;
+    }
+
+    .conversation li, .conversation.starting-me li, .conversation.starting-you li:nth-child(odd) {
+        @apply ml-6 mr-0 rounded-2xl rounded-br-none bg-green-500 px-7 py-4 text-white text-right shadow-md border-0;
+    }
+
+    .conversation li:nth-child(odd), .conversation.starting-me li:nth-child(odd), .conversation.starting-you li {
+        @apply ml-0 mr-6 rounded-bl-none rounded-br-2xl bg-gray-50 text-gray-900 text-left border border-gray-100 border-solid;
+    }
+
+    .conversation li pre {
+        @apply border border-solid border-gray-200;
+    }
+
+    .dos-and-donts {
+        @apply list-none;
+    }
+
+    .dos-and-donts li {
+        @apply pl-2;
+    }
+
+    .dos-and-donts .do::before, .dos-and-donts .dont::before {
+        @apply text-white leading-none flex justify-center h-6 w-6 absolute -ml-8 font-bold rounded-full;
+        padding-top: 3px;
+    }
+
+    .dos-and-donts .do::before {
+        @apply bg-green-700;
+        background: #65A30D;
+        content: '+';
+    }
+
+    .dos-and-donts .dont::before {
+        @apply bg-red-700;
+        content: '–';
     }
 }

@@ -80,16 +80,18 @@ export default function ImplementationDetailInTestsDescription() {
 +  it('should return a copy of the object with given property removed', () => {});
 });`}
             </Code>
-            <ul className="conversation">
-              <li>Sounds better?</li>
-              <li>I think so.</li>
-              <li>Is it perfect?</li>
-              <li>Probably not.</li>
-              <li>Is it good enough?</li>
-              <li>Yes, I'd say so.</li>
-              <li>Is it better than the one at the beginning?</li>
-              <li>Most certainly, yes.</li>
-            </ul>
+            <div className="flex flex-col items-center">
+              <ul className="conversation starting-me">
+                <li>Sounds better?</li>
+                <li>I think so.</li>
+                <li>Is it perfect?</li>
+                <li>Probably not.</li>
+                <li>Is it good enough?</li>
+                <li>Yes, I'd say so.</li>
+                <li>Is it better than the one at the beginning?</li>
+                <li>Most certainly, yes.</li>
+              </ul>
+            </div>
             <p>All right. Let's bring back the implementation to see how does the new description fit in:</p>
             <Code>
               {`describe('omit', () => {
@@ -112,22 +114,24 @@ export default function ImplementationDetailInTestsDescription() {
               is that (copy) checked anywhere? Nope? Let's fix it.
             </p>
             <aside>
-              <p>There are two ways you can approach this:</p>
+              <h4 className="text-xl font-bold leading-normal">There are two ways you can approach this:</h4>
               <ol>
                 <li>Add an assertion to given test.</li>
                 <li>Add a new test, which checks that input object is not the same as the output object.</li>
               </ol>
-              <ul>
-                <li>Which one is correct?</li>
-                <li>I'd say both are, but I would go with another assertion only.</li>
-                <li>Why?</li>
-                <li>
-                  Because this test is short and doesn't need to expliticlty (separate test) show that the returned
-                  object is a copy, simple assertion in one test will be fine. Secondly, because it relates to the data
-                  being returned. If, on the other hand, there were two, separate things going on as a result of some
-                  action, then I would say go with two separate tests.
-                </li>
-              </ul>
+              <div className="flex flex-col items-center">
+                <ul className="conversation starting-you max-w-2xl">
+                  <li>Which one is correct?</li>
+                  <li>I'd say both are, but I would go with another assertion only.</li>
+                  <li>Why?</li>
+                  <li>
+                    Because this test is short and doesn't need to explicitly show (in a separate test) that the
+                    returned object is a copy, simple assertion in one test will be fine. Secondly, because it relates
+                    to the data being returned. If, on the other hand, there were two, separate things going on as a
+                    result of some action, then I would say go with two separate tests.
+                  </li>
+                </ul>
+              </div>
               <p>
                 <strong>
                   (TODO: link to an example with a button when where it is clicked spy is called and spinner is shown).
@@ -151,61 +155,68 @@ export default function ImplementationDetailInTestsDescription() {
   });
 });`}
             </Code>
-            <ul>
-              <li>
-                I got a question: why not checking if <code>`data`</code> still has <code>`name`</code> property? Isn't
-                that the same?
-              </li>
-              <li>No.</li>
-              <li>
-                But it's that simple (to write and read). I still don't see it <span className="italic">that</span>{' '}
-                different.
-              </li>
-              <li>
-                OK, let's try doing it your way.
-                <Code language="diff">
-                  {`- expect(result).not.toEqual(data);
+            <div className="flex flex-col items-center">
+              <ul className="conversation starting-you">
+                <li>
+                  I got a question: why not checking if <code>`data`</code> still has <code>`name`</code> property?
+                  Isn't that the same?
+                </li>
+                <li>No.</li>
+                <li>
+                  But it's that simple (to write and read). I still don't see it <span className="italic">that</span>{' '}
+                  different.
+                </li>
+                <li>
+                  OK, let's try doing it your way.
+                  <Code language="diff" inConversation>
+                    {`- expect(result).not.toEqual(data);
 + expect(data.name).toEqual('John');`}
-                </Code>
-              </li>
-              <li>Done. What now?</li>
-              <li>
-                Break the test. Remove copying the object from implementation.
-                <Code language="diff">
-                  {`- const copy = { ...object };
+                  </Code>
+                </li>
+                <li>Done. What now?</li>
+                <li>
+                  Break the test. Remove copying the object from implementation.
+                  <Code language="diff" inConversation>
+                    {`- const copy = { ...object };
 - delete copy[property];
 - return copy;
 + delete object[property];
 + return object;`}
-                </Code>
-              </li>
-              <li>Done.</li>
-              <li>
-                Run the tests and watch.
-                <Code language="shell">{`Assertion error: undefined expected to be equal to John`}</Code>
-              </li>
-              <li>What the?</li>
-              <li>
-                Now use the initial assertion.
-                <Code language="shell">Assertion error: expected not to be equal </Code>
-                As you can see, using the object equality assertion resulted in error message that reflects the expected
-                behaviour as written in test's description. And that's the difference and reason why checking properties
-                would not help you eventually.
-              </li>
-            </ul>
+                  </Code>
+                </li>
+                <li>Done.</li>
+                <li>
+                  Run the tests and watch.
+                  <Code
+                    language="shell"
+                    inConversation
+                  >{`Assertion error: undefined expected to be equal to John`}</Code>
+                </li>
+                <li>What the?</li>
+                <li>
+                  Now use the initial assertion.
+                  <Code language="shell" inConversation>
+                    Assertion error: expected not to be equal{' '}
+                  </Code>
+                  As you can see, using the object equality assertion resulted in error message that reflects the
+                  expected behaviour as written in test's description. And that's the difference and reason why checking
+                  properties would not help you eventually.
+                </li>
+              </ul>
+            </div>
           </section>
 
           <section>
             <h3 className="text-3xl font-black leading-normal">Summarizing:</h3>
-            <ol>
-              <li>(-) Don't mention implementation detail in the description (test data can change).</li>
-              <li>(+) Instead, write concise explanation what to expect (behaviour).</li>
-              <li>(+) Let the example show how it works (implementation).</li>
-              <li>
-                (+) Finally, use assertions that correspond exactly (or as close as possible) to test's description, so
-                when the tests will fail, messages will inform you exactly (or as close as possible) why.
+            <ul className="dos-and-donts">
+              <li className="dont">Don't mention implementation detail in the description (test data can change).</li>
+              <li className="do">Instead, write concise explanation what to expect (behaviour).</li>
+              <li className="do">Let the example show how it works (implementation).</li>
+              <li className="do">
+                Finally, use assertions that correspond exactly (or as close as possible) to test's description, so when
+                the tests will fail, messages will inform you exactly (or as close as possible) why.
               </li>
-            </ol>
+            </ul>
           </section>
         </article>
       </main>

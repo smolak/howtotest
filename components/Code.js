@@ -1,8 +1,8 @@
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { a11yDark } from 'react-syntax-highlighter/dist/cjs/styles/prism';
+import { okaidia, coy, prism, coldarkDark, coldarkCold } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 
-export const Code = ({ children, language = 'javascript' }) => (
-  <SyntaxHighlighter language={language} style={a11yDark}>
+export const Code = ({ children, inConversation = false, language = 'javascript' }) => (
+  <SyntaxHighlighter language={language} style={inConversation ? coy : okaidia}>
     {children}
   </SyntaxHighlighter>
 );
