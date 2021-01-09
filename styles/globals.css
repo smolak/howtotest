@@ -60,6 +60,15 @@
         @apply border border-solid border-gray-200;
     }
 
+    aside {
+        @apply px-7 pt-4 pb-1 bg-gray-50 my-5 border-l-4 border-solid border-gray-100;
+    }
+
+    aside::before {
+        @apply font-mono uppercase italic text-gray-300 relative top-2;
+        content: 'Side note:';
+    }
+
     .dos-and-donts {
         @apply list-none;
     }

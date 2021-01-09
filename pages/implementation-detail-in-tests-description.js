@@ -49,6 +49,25 @@ export default function ImplementationDetailInTestsDescription() {
               same page.
             </p>
             <p>Let's try fixing this test one step at a time.</p>
+            <aside>
+              <p>
+                Oh, before we do. You probably ask yourself what does it mean{' '}
+                <span className="italic">&quot;implementation detail in test's description&quot;</span>?
+              </p>
+              <p>Long story short:</p>
+              <ul>
+                <li>
+                  The <code>`should remove "name" property`</code> is test's description
+                </li>
+                <li>
+                  implementation detail is a piece of information smuggled out of the code - here, you can see it in
+                  that test's description mentioning what exactly is happening (in the code)
+                </li>
+              </ul>
+              <p>
+                You can read more about what is what in the <a href="#">[to be added] structure of a test suite</a>.
+              </p>
+            </aside>
           </section>
 
           <section>
@@ -114,7 +133,7 @@ export default function ImplementationDetailInTestsDescription() {
               is that (copy) checked anywhere? Nope? Let's fix it.
             </p>
             <aside>
-              <h4 className="text-xl font-bold leading-normal">There are two ways you can approach this:</h4>
+              <p>There are two ways you can approach this:</p>
               <ol>
                 <li>Add an assertion to given test.</li>
                 <li>Add a new test, which checks that input object is not the same as the output object.</li>
@@ -204,6 +223,7 @@ export default function ImplementationDetailInTestsDescription() {
                 </li>
               </ul>
             </div>
+            <p>And that would be it.</p>
           </section>
 
           <section>
