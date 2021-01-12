@@ -28,11 +28,20 @@ export default function Home() {
         </section>
 
         <nav>
-          <Link href="/implementation-detail-in-tests-description">
-            <a className="text-blue-600 hover:text-blue-800 hover:underline">
-              (Problems with) implementation detail in test's description
-            </a>
-          </Link>
+          <ul>
+            <li>
+              <Link href="/implementation-detail-in-tests-description">
+                <a className="text-blue-600 hover:text-blue-800 hover:underline">
+                  (Problems with) implementation detail in test's description
+                </a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/structure-of-a-test-suite">
+                <a className="text-blue-600 hover:text-blue-800 hover:underline">Structure of a test suite</a>
+              </Link>
+            </li>
+          </ul>
         </nav>
       </main>
 

@@ -20,11 +20,11 @@
         counter-reset: my-counter;
     }
 
-    ol li {
+    ol > li {
         counter-increment: my-counter;
     }
 
-    ol li::before {
+    ol > li::before {
         @apply font-bold;
         content: counter(my-counter) ". ";
     }
