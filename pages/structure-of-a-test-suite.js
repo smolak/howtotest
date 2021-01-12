@@ -12,6 +12,11 @@ export default function ImplementationDetailInTestsDescription() {
       <main className="container mx-auto max-w-screen-lg p-4">
         <article>
           <h1 className="text-5xl leading-normal font-black max-w-screen-lg mb-10">Structure of a test suite</h1>
+          <p>
+            Every test (suite) is composed of several different parts. In this article I will show you couple of
+            examples of such test suites, starting from a very simple one, followed by more complex ones with
+            explanation what is what and why the structure looks like it looks.
+          </p>
           <section>
             <aside>
               <p>
@@ -85,6 +90,75 @@ export default function ImplementationDetailInTestsDescription() {
               This is where you verify that given input produces expected output or things that you expect to happen,
               happen. Usually there's one assertion, but that is not a rule.
             </p>
+          </section>
+          <section>
+            <h3 className="text-3xl font-black leading-normal">Conditions</h3>
+            <p>
+              Very often you will want to test the same functionality under given conditions. Here's an example (using
+              previous code):
+            </p>
+            <Code>
+              {`describe('Starship class', () => { // (1)
+  describe('engage method', () => { // (1a)
+    it('should accelerate the ship to set speed', () => { // (2)
+      const ussEnterprise = new Starship(); // (3)
+      const warp3 = 3;                      //
+      ussEnterprise.setSpeed(warp3);        //
+
+      ussEnterprise.engage(); // (4)
+      
+      expect(ussEnterprise.speed).toEqual(warp3); // (5)
+    });
+    
+    describe('when speed is not set', () => { // (6) NEW
+      it('should throw an exception', () => {
+        const ussEnterprise = new Starship(); // (3)
+  
+        expect(() => {
+          ussEnterprise.engage(); // (4)
+        }).toThrow('Starship can\'t move if speed is not set.'); // (5)
+      });
+    });
+  });
+});`}
+            </Code>
+            <p>A couple of things changed here, with one new point to explain, so let's begin:</p>
+            <h4>6. The description of a specific condition for the unit under the test</h4>
+            <p>
+              In this new test the same <code>`engage`</code> method is being tested, but this time it's to explain what
+              will happen if speed is not set.
+            </p>
+            <p>
+              In other words, you're being given a more thorough documentation for how to use the method, what are the
+              preconditions it must met in order for it to be used.
+            </p>
+
+            <h4>The assert part being executed before the arrange part</h4>
+            <p>
+              This is done due to how the test assertion module behaves with code that throws exceptions. Other modules
+              can handle this differently, so don't mind this, it's just how it is supposed to be done.
+            </p>
+
+            <div className="flex flex-col items-center">
+              <ul className="conversation starting-you">
+                <li>
+                  Why not using <code>`try/catch`</code> here?
+                  <br />
+                  That would certainly put the things in right order (act followed by assert).
+                  <Code>
+                    {`try {
+  ussEnterprise.engage();
+} catch (e) {
+  expect(e.message).toEqual('Starship can\'t move if speed is not set.');
+}`}
+                  </Code>
+                </li>
+                <li>
+                  There are several reasons for why it's not a correct way of doing it. You can read about it in [THIS
+                  ARTICLE &lt;-- add it]
+                </li>
+              </ul>
+            </div>
           </section>
         </article>
       </main>
