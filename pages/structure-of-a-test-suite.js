@@ -17,7 +17,7 @@ export default function ImplementationDetailInTestsDescription() {
           <p>
             Every test (suite) is composed of several different parts. In this article I will show you an example of a
             test suite, that starts from a very simple implementation, growing to be more complex. I will explain that
-            structure, how to solve some problems and how to avoid others.
+            structure, how to solve some problems associated with it and how to avoid them.
           </p>
           <section>
             <aside>
