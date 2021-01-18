@@ -435,6 +435,21 @@ function createAndPrepareStarship() {
               tests against <code>`engage`</code> method, but they need to be done before a starship is operational. And
               such helper methods assist you with that.
             </p>
+            <ul className="conversation starting-you">
+              <li>So, there's no point in using hooks?</li>
+              <li>
+                There is, as sometimes you don't only assign values to local variables.You can also:
+                <ul>
+                  <li>start a server</li>
+                  <li>open / close a file for reading</li>
+                  <li>
+                    spy on e.g. <code>`console.error`</code> to check what it was called with or if at all
+                  </li>
+                  <li>and so on</li>
+                </ul>
+              </li>
+              <li>Got it.</li>
+            </ul>
           </section>
           <section>
             <h3 className="text-3xl font-black leading-normal">Summarizing:</h3>
@@ -443,6 +458,7 @@ function createAndPrepareStarship() {
               <li className="dont">Don't abstract at all or too early.</li>
               <li className="dont">Don't create local state / variables unless you know what you're doing.</li>
               <li className="do">Write well described helper methods and use them instead.</li>
+              <li className="do">Avoid hooks if you can.</li>
               <li></li>
             </ul>
           </section>

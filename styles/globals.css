@@ -48,11 +48,11 @@
         @apply rounded-lg p-10 m-10 list-none flex flex-col space-y-4 shadow-2xl font-light;
     }
 
-    .conversation li, .conversation.starting-me li, .conversation.starting-you li:nth-child(odd) {
+    .conversation > li, .conversation.starting-me > li, .conversation.starting-you > li:nth-child(odd) {
         @apply ml-6 mr-0 rounded-2xl rounded-br-none bg-green-500 px-7 py-4 text-white text-right shadow border-0;
     }
 
-    .conversation li:nth-child(odd), .conversation.starting-me li:nth-child(odd), .conversation.starting-you li {
+    .conversation > li:nth-child(odd), .conversation.starting-me > li:nth-child(odd), .conversation.starting-you > li {
         @apply ml-0 mr-6 rounded-bl-none rounded-br-2xl bg-gray-50 text-gray-900 text-left border border-gray-100 border-solid;
     }
 
