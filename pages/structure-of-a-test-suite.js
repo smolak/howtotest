@@ -17,7 +17,7 @@ export default function ImplementationDetailInTestsDescription() {
           <p>
             Every test (suite) is composed of several different parts. In this article I will show you an example of a
             test suite, that starts from a very simple implementation, growing to be more complex. I will explain that
-            structure, how to solve some problems associated with it and how to avoid them.
+            structure, what problems you might run into and ways to fix / avoid them.
           </p>
           <section>
             <aside>
@@ -438,7 +438,7 @@ function createAndPrepareStarship() {
             <ul className="conversation starting-you">
               <li>So, there's no point in using hooks?</li>
               <li>
-                There is, as sometimes you don't only assign values to local variables.You can also:
+                There is, as sometimes you don't only assign values to local variables. You can also:
                 <ul>
                   <li>start a server</li>
                   <li>open / close a file for reading</li>
