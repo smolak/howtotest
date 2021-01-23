@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 @layer base {
+    a {
+        @apply text-lightBlue-600 underline hover:text-lightBlue-800;
+    }
+
     p {
         @apply my-5 text-gray-700;
     }
@@ -30,26 +34,21 @@
     }
 
     li {
-        @apply mt-1.5;
-        @apply mb-1.5;
-        @apply text-gray-700;
+        @apply mt-1.5 mb-1.5 text-gray-700;
     }
 
     p > code, li > code {
-        @apply bg-gray-100;
-        @apply rounded;
-        @apply p-0.5;
-        @apply text-gray-800;
+        @apply bg-gray-200 rounded p-0.5 text-gray-800;
     }
 }
 
 @layer components {
     .conversation {
-        @apply rounded-lg p-10 m-10 list-none flex flex-col space-y-4 shadow-2xl font-light;
+        @apply rounded-lg p-8 m-10 list-none flex flex-col space-y-4 shadow-2xl font-light;
     }
 
     .conversation > li, .conversation.starting-me > li, .conversation.starting-you > li:nth-child(odd) {
-        @apply ml-6 mr-0 rounded-2xl rounded-br-none bg-green-500 px-7 py-4 text-white text-right shadow border-0;
+        @apply ml-6 mr-0 rounded-2xl rounded-br-none bg-lightBlue-600 px-5 py-3 text-white text-right shadow border-0;
     }
 
     .conversation > li:nth-child(odd), .conversation.starting-me > li:nth-child(odd), .conversation.starting-you > li {
@@ -94,10 +93,10 @@
     }
 
     .section-title {
-        @apply text-3xl font-black leading-normal;
+        @apply text-4xl font-extrabold leading-normal mt-20;
     }
 
     .section-subtitle {
-        @apply text-xl font-black;
+        @apply text-2xl font-bold;
     }
 }

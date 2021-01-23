@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import { Code } from '../components/Code';
+import Link from 'next/link';
 
 export default function ImplementationDetailInTestsDescription() {
   return (
@@ -65,7 +66,8 @@ export default function ImplementationDetailInTestsDescription() {
                 </li>
               </ul>
               <p>
-                You can read more about what is what in the <a href="#">[to be added] structure of a test suite</a>.
+                You can read more about what is what in the{' '}
+                <Link href="/structure-of-a-test-suite-and-what-to-watch-out-for">structure of a test suite</Link>.
               </p>
             </aside>
           </section>

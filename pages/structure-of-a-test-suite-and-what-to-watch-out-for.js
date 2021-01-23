@@ -56,7 +56,7 @@ export default function ImplementationDetailInTestsDescription() {
 });`}
             </Code>
             <p>Let's break it down:</p>
-            <h4 className="section-subtitle">1. The name of the thing we're testing</h4>
+            <h4 className="section-subtitle">(1) The name of the thing we're testing</h4>
             <p>
               It's like the title of the book, an identifier for the test suite, usually it's the name of the module /
               class / function / ...
@@ -66,7 +66,7 @@ export default function ImplementationDetailInTestsDescription() {
               it plays the same role (just the scope is narrower).
             </p>
 
-            <h4 className="section-subtitle">2. What is supposed to happen</h4>
+            <h4 className="section-subtitle">(2) What is supposed to happen</h4>
             <p>
               It's the description of the expected result of the functionality you're testing. In other words, how the
               unit under the test should work, what should happen when you execute `engage` method.
@@ -82,21 +82,21 @@ export default function ImplementationDetailInTestsDescription() {
               read the [guideline &lt;-- add link]
             </p>
 
-            <h4 className="section-subtitle">3. The arrange part of the implementation</h4>
+            <h4 className="section-subtitle">(3) The arrange part of the implementation</h4>
             <p>
               This is where (usually all of) the preparations are done for the implementation of the test. It can be the
               creation of an instance of the class or preparation of test doubles or whatever is necessary for the unit
               to act.
             </p>
 
-            <h4 className="section-subtitle">4. The act part of the implementation</h4>
+            <h4 className="section-subtitle">(4) The act part of the implementation</h4>
             <p>
               This is <span className="italic">the</span> code which when executed will trigger the feature to happen
               and eventually produce the expected result(s). This part is very important as it shows everyone how to use
               your feature.
             </p>
 
-            <h4 className="section-subtitle">5. The assert part of the implementation</h4>
+            <h4 className="section-subtitle">(5) The assert part of the implementation</h4>
             <p>
               This is where you check / assert / expect that the feature, the unit under the test works as it should.
               This is where you verify that given input produces expected output or things that you expect to happen,
@@ -135,7 +135,9 @@ export default function ImplementationDetailInTestsDescription() {
 });`}
             </Code>
             <p>A couple of things changed here, with one new point to explain:</p>
-            <h4 className="section-subtitle">6. The description of a specific condition for the unit under the test</h4>
+            <h4 className="section-subtitle">
+              (6) The description of a specific condition for the unit under the test
+            </h4>
             <p>
               In this new test the same <code>`engage`</code> method is being tested, but this time it's to explain what
               will happen if speed is not set.
@@ -230,7 +232,7 @@ export default function ImplementationDetailInTestsDescription() {
 });`}
             </Code>
             <h4 className="section-subtitle">
-              7. <code>`let ussEnterprise`</code>
+              (7) <code>`let ussEnterprise`</code>
             </h4>
             <p>
               Such a variable is probably not the worst thing that can happen. But if you were to assign a value to it
@@ -249,7 +251,7 @@ export default function ImplementationDetailInTestsDescription() {
               how in just a moment.
             </p>
             <h4 className="section-subtitle">
-              8. <code>`beforeEach`</code>
+              (8) <code>`beforeEach`</code>
             </h4>
             <p>
               In this example the need of creating the instance of the starship was extracted (kind of) to{' '}
@@ -346,10 +348,10 @@ export default function ImplementationDetailInTestsDescription() {
                 <br />
                 Can I do it?
               </li>
+              <li>
+                Yes, you can, and looking at the local variable <code>`let ussEnterprise`</code>, you even should.
+              </li>
             </ul>
-            <p>
-              Yes, you can, and looking at the local variable <code>`let ussEnterprise`</code>, you even should.
-            </p>
           </section>
           <section>
             <h3 className="section-title">Helper methods</h3>
