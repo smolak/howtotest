@@ -39,7 +39,7 @@ export default function ImplementationDetailInTestsDescription() {
                 </li>
               </ul>
             </aside>
-            <h3 className="text-3xl font-black leading-normal">Simple example</h3>
+            <h3 className="section-title">Simple example</h3>
             <Code>
               {`describe('Starship class', () => { // (1)
   describe('engage method', () => { // (1a)
@@ -56,7 +56,7 @@ export default function ImplementationDetailInTestsDescription() {
 });`}
             </Code>
             <p>Let's break it down:</p>
-            <h4>1. The name of the thing we're testing</h4>
+            <h4 className="section-subtitle">1. The name of the thing we're testing</h4>
             <p>
               It's like the title of the book, an identifier for the test suite, usually it's the name of the module /
               class / function / ...
@@ -66,7 +66,7 @@ export default function ImplementationDetailInTestsDescription() {
               it plays the same role (just the scope is narrower).
             </p>
 
-            <h4>2. What is supposed to happen</h4>
+            <h4 className="section-subtitle">2. What is supposed to happen</h4>
             <p>
               It's the description of the expected result of the functionality you're testing. In other words, how the
               unit under the test should work, what should happen when you execute `engage` method.
@@ -82,21 +82,21 @@ export default function ImplementationDetailInTestsDescription() {
               read the [guideline &lt;-- add link]
             </p>
 
-            <h4>3. The arrange part of the implementation</h4>
+            <h4 className="section-subtitle">3. The arrange part of the implementation</h4>
             <p>
               This is where (usually all of) the preparations are done for the implementation of the test. It can be the
               creation of an instance of the class or preparation of test doubles or whatever is necessary for the unit
               to act.
             </p>
 
-            <h4>4. The act part of the implementation</h4>
+            <h4 className="section-subtitle">4. The act part of the implementation</h4>
             <p>
               This is <span className="italic">the</span> code which when executed will trigger the feature to happen
               and eventually produce the expected result(s). This part is very important as it shows everyone how to use
               your feature.
             </p>
 
-            <h4>5. The assert part of the implementation</h4>
+            <h4 className="section-subtitle">5. The assert part of the implementation</h4>
             <p>
               This is where you check / assert / expect that the feature, the unit under the test works as it should.
               This is where you verify that given input produces expected output or things that you expect to happen,
@@ -104,7 +104,7 @@ export default function ImplementationDetailInTestsDescription() {
             </p>
           </section>
           <section>
-            <h3 className="text-3xl font-black leading-normal">Conditions</h3>
+            <h3 className="section-title">Conditions</h3>
             <p>
               Very often you will want to test the same functionality under given conditions. Here's an example (using
               previous code):
@@ -135,7 +135,7 @@ export default function ImplementationDetailInTestsDescription() {
 });`}
             </Code>
             <p>A couple of things changed here, with one new point to explain:</p>
-            <h4>6. The description of a specific condition for the unit under the test</h4>
+            <h4 className="section-subtitle">6. The description of a specific condition for the unit under the test</h4>
             <p>
               In this new test the same <code>`engage`</code> method is being tested, but this time it's to explain what
               will happen if speed is not set.
@@ -145,7 +145,7 @@ export default function ImplementationDetailInTestsDescription() {
               preconditions it must meet in order for it to be used and what will happen if you don't.
             </p>
 
-            <h4>The assert part being executed before the arrange part</h4>
+            <h4 className="section-subtitle">The assert part being executed before the arrange part</h4>
             <p>
               This is done due to how the test assertion library behaves with code that throws exceptions. Other
               assertion libraries can handle this differently, so don't mind this, it's just how it is supposed to be
@@ -178,7 +178,7 @@ export default function ImplementationDetailInTestsDescription() {
             </div>
           </section>
           <section>
-            <h3 className="text-3xl font-black leading-normal">Before/after, setup/teardown and alike</h3>
+            <h3 className="section-title">Before/after, setup/teardown and alike</h3>
             <p>
               They are called hooks are they're used to avoid repetitive preparations for each test in given scope.
               Let's take a look at a whole test suite example:
@@ -229,7 +229,7 @@ export default function ImplementationDetailInTestsDescription() {
   });
 });`}
             </Code>
-            <h4>
+            <h4 className="section-subtitle">
               7. <code>`let ussEnterprise`</code>
             </h4>
             <p>
@@ -248,7 +248,7 @@ export default function ImplementationDetailInTestsDescription() {
               Therefore use local variables / state very wisely and with caution. Avoid it if possible. I will show you
               how in just a moment.
             </p>
-            <h4>
+            <h4 className="section-subtitle">
               8. <code>`beforeEach`</code>
             </h4>
             <p>
@@ -290,7 +290,7 @@ export default function ImplementationDetailInTestsDescription() {
             </ul>
           </section>
           <section>
-            <h3 className="text-3xl font-black leading-normal">Things to watch out for</h3>
+            <h3 className="section-title">Things to watch out for</h3>
             <p>Let's have a look at the test suite again, this time without the comments:</p>
             <Code>
               {`describe('Starship class', () => {
@@ -352,7 +352,7 @@ export default function ImplementationDetailInTestsDescription() {
             </p>
           </section>
           <section>
-            <h3 className="text-3xl font-black leading-normal">Helper methods</h3>
+            <h3 className="section-title">Helper methods</h3>
             <p>I will begin from showing the code first:</p>
             <Code>
               {`function createAndPrepareStarship() {
@@ -452,7 +452,7 @@ function createAndPrepareStarship() {
             </ul>
           </section>
           <section>
-            <h3 className="text-3xl font-black leading-normal">Summarizing:</h3>
+            <h3 className="section-title">Summarizing:</h3>
             <ul className="dos-and-donts">
               <li className="do">Try keeping the arrange / act / assert in every test.</li>
               <li className="dont">Don't abstract at all or too early.</li>

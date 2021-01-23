@@ -92,4 +92,12 @@
         @apply bg-red-700;
         content: '–';
     }
+
+    .section-title {
+        @apply text-3xl font-black leading-normal;
+    }
+
+    .section-subtitle {
+        @apply text-xl font-black;
+    }
 }

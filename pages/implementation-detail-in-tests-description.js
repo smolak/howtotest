@@ -15,7 +15,7 @@ export default function ImplementationDetailInTestsDescription() {
             (Problems with) implementation detail in test's description
           </h1>
           <section>
-            <h3 className="text-3xl font-black leading-normal">Problematic test</h3>
+            <h3 className="section-title">Problematic test</h3>
             <p>
               Let's take a look at this small test suite for <code>omit</code> function:
             </p>
@@ -71,7 +71,7 @@ export default function ImplementationDetailInTestsDescription() {
           </section>
 
           <section>
-            <h3 className="text-3xl font-black leading-normal">Applying solution</h3>
+            <h3 className="section-title">Applying solution</h3>
 
             <p>
               First of all <code>`name`</code> is an implementation detail and should only serve as an example in, well,
@@ -227,7 +227,7 @@ export default function ImplementationDetailInTestsDescription() {
           </section>
 
           <section>
-            <h3 className="text-3xl font-black leading-normal">Summarizing:</h3>
+            <h3 className="section-title">Summarizing:</h3>
             <ul className="dos-and-donts">
               <li className="dont">Don't mention implementation detail in the description (test data can change).</li>
               <li className="do">Instead, write concise explanation what to expect (behaviour).</li>
