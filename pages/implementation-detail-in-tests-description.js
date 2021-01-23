@@ -67,7 +67,10 @@ export default function ImplementationDetailInTestsDescription() {
               </ul>
               <p>
                 You can read more about what is what in the{' '}
-                <Link href="/structure-of-a-test-suite-and-what-to-watch-out-for">structure of a test suite</Link>.
+                <Link href="/structure-of-a-test-suite-and-what-to-watch-out-for">
+                  structure of a test suite and what to watch out for
+                </Link>{' '}
+                article.
               </p>
             </aside>
           </section>
