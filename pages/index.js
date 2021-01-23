@@ -37,8 +37,10 @@ export default function Home() {
               </Link>
             </li>
             <li>
-              <Link href="/structure-of-a-test-suite">
-                <a className="text-blue-600 hover:text-blue-800 hover:underline">Structure of a test suite</a>
+              <Link href="/structure-of-a-test-suite-and-what-to-watch-out-for">
+                <a className="text-blue-600 hover:text-blue-800 hover:underline">
+                  Structure of a test suite and what to watch out for
+                </a>
               </Link>
             </li>
           </ul>
