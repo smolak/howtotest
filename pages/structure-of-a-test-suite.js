@@ -166,7 +166,7 @@ export default function ImplementationDetailInTestsDescription() {
                     {`try {
   ussEnterprise.engage();
 } catch (e) {
-  expect(e.message).toEqual('Starship can\'t move if speed is not set.');
+  expect(e.message).toEqual("Starship can't move if speed is not set.");
 }`}
                   </Code>
                 </li>
@@ -223,7 +223,7 @@ export default function ImplementationDetailInTestsDescription() {
   
         expect(() => {
           ussEnterprise.engage(); // (4)
-        }).toThrow('Starship can\'t move if speed is not set.'); // (5)
+        }).toThrow("Starship can't move if speed is not set."); // (5)
       });
     });
   });
@@ -314,7 +314,7 @@ export default function ImplementationDetailInTestsDescription() {
       it('should throw an exception', () => {
         expect(() => {
           ussEnterprise.engage();
-        }).toThrow('Starship can\'t move if speed is not set.');
+        }).toThrow("Starship can't move if speed is not set.");
       });
     });
   });
@@ -379,7 +379,7 @@ describe('Starship class', () => {
       
         expect(() => {
           ussEnterprise.engage();
-        }).toThrow('Starship can\'t move if speed is not set.');
+        }).toThrow("Starship can't move if speed is not set.");
       });
     });
   });
