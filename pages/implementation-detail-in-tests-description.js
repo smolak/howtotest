@@ -142,7 +142,7 @@ export default function ImplementationDetailInTestsDescription() {
                 <li>Add a new test, which checks that input object is not the same as the output object.</li>
               </ol>
               <div className="flex flex-col items-center">
-                <ul className="conversation starting-you max-w-2xl">
+                <ul className="conversation starting-you">
                   <li>Which one is correct?</li>
                   <li>I'd say both are, but I would go with another assertion only.</li>
                   <li>Why?</li>
