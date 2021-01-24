@@ -133,22 +133,22 @@
     }
 
     .article-title {
-        @apply text-3xl font-black max-w-screen-lg mb-10;
+        @apply text-3xl font-black mb-5;
     }
 
     @media (min-width: 1024px) {
         .article-title {
-            @apply text-5xl leading-normal;
+            @apply text-5xl leading-normal mb-10;
         }
     }
 
     .section-title {
-        @apply text-2xl font-extrabold mt-20;
+        @apply text-2xl font-extrabold mt-14;
     }
 
     @media (min-width: 1024px) {
         .section-title {
-            @apply text-4xl leading-normal;
+            @apply text-4xl leading-normal mt-20;
         }
     }
 
