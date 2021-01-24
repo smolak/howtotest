@@ -12,9 +12,7 @@ export default function ImplementationDetailInTestsDescription() {
 
       <main className="container mx-auto max-w-screen-lg p-4">
         <article>
-          <h1 className="text-5xl leading-normal font-black max-w-screen-lg mb-10">
-            (Problems with) implementation detail in test's description
-          </h1>
+          <h1 className="article-title">(Problems with) implementation detail in test's description</h1>
           <section>
             <h3 className="section-title">Problematic test</h3>
             <p>

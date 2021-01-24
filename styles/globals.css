@@ -44,7 +44,7 @@
 
 @layer components {
     .conversation {
-        @apply rounded-lg p-8 m-10 list-none flex flex-col space-y-4 shadow-2xl font-light;
+        @apply rounded-lg list-none flex flex-col space-y-4 font-light pl-0;
     }
 
     .conversation > li, .conversation.starting-me > li, .conversation.starting-you > li:nth-child(odd) {
@@ -57,6 +57,12 @@
 
     .conversation li pre {
         @apply border border-solid border-gray-200;
+    }
+
+    @media (min-width: 1024px) {
+        .conversation {
+            @apply m-10 p-8 shadow-2xl;
+        }
     }
 
     aside {
@@ -92,11 +98,33 @@
         content: '–';
     }
 
+    .article-title {
+        @apply text-3xl font-black max-w-screen-lg mb-10;
+    }
+
+    @media (min-width: 1024px) {
+        .article-title {
+            @apply text-5xl leading-normal;
+        }
+    }
+
     .section-title {
-        @apply text-4xl font-extrabold leading-normal mt-20;
+        @apply text-2xl font-extrabold mt-20;
+    }
+
+    @media (min-width: 1024px) {
+        .section-title {
+            @apply text-4xl leading-normal;
+        }
     }
 
     .section-subtitle {
-        @apply text-2xl font-bold;
+        @apply text-xl font-bold mt-10;
+    }
+
+    @media (min-width: 1024px) {
+        .section-subtitle {
+            @apply text-2xl;
+        }
     }
 }

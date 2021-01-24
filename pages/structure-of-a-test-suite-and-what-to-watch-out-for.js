@@ -11,9 +11,7 @@ export default function ImplementationDetailInTestsDescription() {
 
       <main className="container mx-auto max-w-screen-lg p-4">
         <article>
-          <h1 className="text-5xl leading-normal font-black max-w-screen-lg mb-10">
-            Structure of a test suite and what to watch out for
-          </h1>
+          <h1 className="article-title">Structure of a test suite and what to watch out for</h1>
           <p>
             Every test (suite) is composed of several different parts. In this article I will show you an example of a
             test suite, that starts from a very simple implementation, growing to be more complex. I will explain that
@@ -164,7 +162,7 @@ export default function ImplementationDetailInTestsDescription() {
                   Why not?
                   <br />
                   That would certainly put the things in right order (act part followed by assert part), like this:
-                  <Code>
+                  <Code inConversation>
                     {`try {
   ussEnterprise.engage();
 } catch (e) {
