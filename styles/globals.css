@@ -44,11 +44,33 @@
 
 @layer components {
     .conversation {
-        @apply rounded-lg list-none flex flex-col space-y-4 font-light pl-0;
+        @apply rounded-lg list-none flex flex-col space-y-2 font-light pl-0;
+    }
+
+    @media (max-width: 640px) {
+        .conversation {
+            @apply w-full;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .conversation {
+            @apply space-y-4;
+        }
+    }
+
+    .conversation > li {
+        @apply py-2 rounded-lg;
+    }
+
+    @media (min-width: 1024px) {
+        .conversation > li {
+            @apply py-3 rounded-2xl;
+        }
     }
 
     .conversation > li, .conversation.starting-me > li, .conversation.starting-you > li:nth-child(odd) {
-        @apply ml-6 mr-0 rounded-2xl rounded-br-none bg-lightBlue-600 px-5 py-3 text-white text-right shadow border-0;
+        @apply ml-6 mr-0 rounded-br-none bg-lightBlue-600 px-5 text-white text-right shadow border-0;
     }
 
     .conversation > li:nth-child(odd), .conversation.starting-me > li:nth-child(odd), .conversation.starting-you > li {
