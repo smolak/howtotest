@@ -47,7 +47,7 @@
         @apply rounded-lg list-none flex flex-col space-y-2 font-light pl-0;
     }
 
-    @media (max-width: 640px) {
+    @media (max-width: 639px) {
         .conversation {
             @apply w-full;
         }
@@ -60,25 +60,37 @@
     }
 
     .conversation > li {
-        @apply py-2 rounded-lg;
+        @apply mt-0 mb-0 px-4 py-2 rounded-lg;
     }
 
     @media (min-width: 1024px) {
         .conversation > li {
-            @apply py-3 rounded-2xl;
+            @apply px-5 py-3 rounded-2xl;
         }
     }
 
-    .conversation > li, .conversation.starting-me > li, .conversation.starting-you > li:nth-child(odd) {
-        @apply ml-6 mr-0 rounded-br-none bg-lightBlue-600 px-5 text-white text-right shadow border-0;
+    .conversation.starting-me > li:nth-child(odd), .conversation.starting-you > li:nth-child(even) {
+        @apply bg-coolGray-100 text-gray-900 text-left mr-5 rounded-bl-none border-b border-l border-coolGray-200;
     }
 
-    .conversation > li:nth-child(odd), .conversation.starting-me > li:nth-child(odd), .conversation.starting-you > li {
-        @apply ml-0 mr-6 rounded-bl-none rounded-br-2xl bg-gray-50 text-gray-900 text-left border border-gray-100 border-solid;
+    @media (max-width: 1023px) {
+        aside .conversation.starting-me > li:nth-child(odd), aside .conversation.starting-you > li:nth-child(even) {
+            @apply border-coolGray-300;
+        }
+    }
+
+    .conversation.starting-me > li:nth-child(even), .conversation.starting-you > li:nth-child(odd) {
+        @apply bg-lightBlue-600 text-white text-right ml-5 rounded-br-none;
     }
 
     .conversation li pre {
-        @apply border border-solid border-gray-200;
+        @apply border border-solid border-coolGray-200;
+    }
+
+    @media (max-width: 1023px) {
+        .conversation li pre {
+            @apply border-coolGray-300;
+        }
     }
 
     @media (min-width: 1024px) {
