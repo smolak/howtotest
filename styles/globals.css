@@ -73,12 +73,6 @@
         @apply bg-coolGray-100 text-gray-900 text-left mr-5 rounded-bl-none border-b border-l border-coolGray-200;
     }
 
-    @media (max-width: 1023px) {
-        aside .conversation.starting-me > li:nth-child(odd), aside .conversation.starting-you > li:nth-child(even) {
-            @apply border-coolGray-300;
-        }
-    }
-
     .conversation.starting-me > li:nth-child(even), .conversation.starting-you > li:nth-child(odd) {
         @apply bg-lightBlue-600 text-white text-right ml-5 rounded-br-none;
     }
