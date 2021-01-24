@@ -38,7 +38,7 @@
     }
 
     p > code, li > code {
-        @apply bg-gray-200 rounded p-0.5 text-gray-800;
+        @apply bg-coolGray-200 rounded px-0.5 text-coolGray-800;
     }
 }
 
