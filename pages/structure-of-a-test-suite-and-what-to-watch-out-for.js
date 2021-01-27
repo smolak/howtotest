@@ -28,8 +28,8 @@ export default function ImplementationDetailInTestsDescription() {
                   here, but every test runner should have similar capabilities.
                 </li>
                 <li>
-                  You will not learn here everything that is to writing good unit tests, but I have written more about
-                  that. [ADD LINKS]
+                  You will not learn here everything there is to writing good unit tests, but I have written more about
+                  that in other articles.
                 </li>
                 <li>
                   Also, I don't know anything about how starships are built or how do they operate, so this is all made
@@ -77,7 +77,7 @@ export default function ImplementationDetailInTestsDescription() {
             </ul>
             <p>
               If you want to know more or learn how to write meaningful test descriptions, what to watch out for, etc.,
-              read the [guideline &lt;-- add link]
+              read the [TODO: guideline &lt;-- add link]
             </p>
 
             <h4 className="section-subtitle">(3) The arrange part of the implementation</h4>
